@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TheaterMap</string>
+    <string name="title_activity_maps">Karte der Theater</string>
+</resources>
