@@ -18,7 +18,8 @@ import java.util.ArrayList;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ArrayList<Theater> theaters;
+    private ArrayList<Theater> mTheaters;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         protected ArrayList<Theater> doInBackground(String... params) {
-            theaters = ContentRequest.retrieveContent();
-            return theaters;
+            mTheaters = ContentRequest.retrieveContent();
+            return mTheaters;
         }
 
         @Override
