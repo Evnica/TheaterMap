@@ -11,7 +11,9 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.evnica.theatermap.ContentRequest;
 import com.evnica.theatermap.DetailActivity;
+import com.evnica.theatermap.Locator;
 import com.evnica.theatermap.R;
+import com.evnica.theatermap.RouteCalculator;
 import com.evnica.theatermap.Theater;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,6 +33,7 @@ public class MapTabFragment extends SupportMapFragment implements
 
     private GoogleMap mMap;
     private boolean mHybridMap = false;
+    private Locator mLocator = new Locator();
 
     public MapTabFragment() {
     }
@@ -44,19 +47,19 @@ public class MapTabFragment extends SupportMapFragment implements
     private void setUpMapIfNull() {
         if (mMap == null) {
             getMapAsync(this);
+            Locator.setGoogleMap(mMap);
         }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        setUpMap();
+        setupMap();
+        Locator.setGoogleMap(mMap);
     }
 
-    private void setUpMap() {
+    private void setupMap() {
 
-
-        //mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(false);
         addMarkers();
     }
@@ -108,7 +111,8 @@ public class MapTabFragment extends SupportMapFragment implements
                 double lat = marker.getPosition().latitude;
                 double lon = marker.getPosition().longitude;
 
-                intent.putExtra("coords", lat + ", " + lon);
+                intent.putExtra("lat", lat);
+                intent.putExtra("lon", lon);
 
                 startActivity(intent);
             }
@@ -123,11 +127,13 @@ public class MapTabFragment extends SupportMapFragment implements
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         linearLayout.setLayoutParams(params);
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        Button button = new Button(getActivity());
-        button.setText("Kartenaussehen ändern");
-        LayoutParams paramsButton = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        button.setLayoutParams(paramsButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        LayoutParams bunnonParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        ViewGroup viewGroup = (ViewGroup) view;
+
+        Button mapTypeButton = new Button(getActivity());
+        mapTypeButton.setText("Kartenaussehen ändern");
+        mapTypeButton.setLayoutParams(bunnonParams);
+        mapTypeButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -145,8 +151,24 @@ public class MapTabFragment extends SupportMapFragment implements
                 //MAP_TYPE_HYBRID;
             }
         });
-        ViewGroup viewGroup = (ViewGroup) view;
-        linearLayout.addView(button);
+
+        Button routeButton = new Button(getActivity());
+        routeButton.setText("Route berechnen");
+        routeButton.setLayoutParams(bunnonParams);
+        routeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (RouteCalculator.getStart() != null && RouteCalculator.getTarget() != null){
+                      RouteCalculator.setMap(mMap);
+                      RouteCalculator.calculateRoute();
+                }
+            }
+        });
+
+        linearLayout.addView(mapTypeButton);
+        linearLayout.addView(routeButton);
         viewGroup.addView(linearLayout);
     }
+
+
 }

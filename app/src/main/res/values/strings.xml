@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">Wiener Theater</string>
     <string name="title_activity_maps">Karte der Theater</string>
+    <string name="title_activity_detail">Detailierte Beschreibung</string>
+    <string name="title_activity_routingError">FEHLER</string>
     <string name="imageRow">Theater</string>
     <string name="mapstyle">Kartenaussehen ändern</string>
     <string name="back">Zurück</string>
-    <string name="title_activity_detail">Detailierte Beschreibung</string>
+    <string name="start">Start</string>
+    <string name="target">Ziel</string>
+    <string name="error">Routeberechnung nicht möglich</string>
+    <string name="errorDetail">Um eine Route zu berechnen, muss man einen Startpunk und ein Ziel
+    auswählen. Um ein Theater als Startpunkt/Ziel auszuwählen, klicken Sie das Infowindow des
+        Theaters an</string>
 </resources>
