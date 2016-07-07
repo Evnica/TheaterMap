@@ -9,7 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:id="@+id/dialogLinearLayout"
         android:orientation="vertical">
 
         <TextView
@@ -27,15 +26,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearance"
             android:layout_gravity="center"
-            android:text="@string/errorDetail"/>
+            android:text="@string/errorDetail"
+            />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:id="@+id/backButton"
-            android:layout_marginTop="16dp" />
-
+            android:text="@string/clear"
+            android:id="@+id/backErrorButton"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 

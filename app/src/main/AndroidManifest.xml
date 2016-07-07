@@ -45,10 +45,10 @@
 
         <activity
             android:name=".TabbedActivity"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_maps"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -63,6 +63,11 @@
             android:name=".RoutingErrorActivity"
             android:label="@string/title_activity_routingError"
             android:theme="@android:style/Theme.Dialog">
+        </activity>
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
         </activity>
 
     </application>

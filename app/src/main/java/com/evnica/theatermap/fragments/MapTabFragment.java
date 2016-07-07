@@ -14,6 +14,7 @@ import com.evnica.theatermap.DetailActivity;
 import com.evnica.theatermap.Locator;
 import com.evnica.theatermap.R;
 import com.evnica.theatermap.RouteCalculator;
+import com.evnica.theatermap.RoutingErrorActivity;
 import com.evnica.theatermap.Theater;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -161,6 +162,9 @@ public class MapTabFragment extends SupportMapFragment implements
                 if (RouteCalculator.getStart() != null && RouteCalculator.getTarget() != null){
                       RouteCalculator.setMap(mMap);
                       RouteCalculator.calculateRoute();
+                }
+                else {
+                    startActivity(new Intent(getActivity(), RoutingErrorActivity.class));
                 }
             }
         });

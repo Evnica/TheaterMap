@@ -6,10 +6,22 @@
     <string name="imageRow">Theater</string>
     <string name="mapstyle">Kartenaussehen ändern</string>
     <string name="back">Zurück</string>
+    <string name="clear">Ich hab es verstanden</string>
     <string name="start">Start</string>
     <string name="target">Ziel</string>
-    <string name="error">Routeberechnung nicht möglich</string>
+    <string name="error">Berechnung nicht möglich</string>
     <string name="errorDetail">Um eine Route zu berechnen, muss man einen Startpunk und ein Ziel
     auswählen. Um ein Theater als Startpunkt/Ziel auszuwählen, klicken Sie das Infowindow des
         Theaters an</string>
+    <string name="description">Diese App bietet die Auflistung aller <b>Wiener Theater</b> und stellt ihre
+        Lage auf der Karte von Wien dar. Datenquelle: <i>OpenStreetMaps</i>.
+        Es ist möglich, Kartenaussehen zu wählen: eine normale Darstellung sowie auch Hybridkarte
+        sind vorhanden.
+        </string>
+    <string name="description1">Die Auflistung der Theater und die Karte findet man unter den entsprechenden Tabs.</string>
+    <string name="description2">Man kann auch eine <b>Route zwischen zwei Theater</b> berechnen. Damit soll man ein
+        Infowindow anklicken und Theater als Startpunkt bzw. als Ziel markieren.</string>
+    <string name="description3">Die Zusätzliche Testfunktionalität ermöglicht es, einen eigenen
+        Standort auf der Karte zu sehen.</string>
+    <string name="startMapActivity">Testkarte starten</string>
 </resources>
