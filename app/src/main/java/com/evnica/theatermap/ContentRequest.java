@@ -70,28 +70,23 @@ public class ContentRequest {
                     lat = Double.parseDouble(entry.getString("lat"));
                     lon = Double.parseDouble(entry.getString("lon"));
 
+                    if (address.has("postcode")) {
+                        location = address.getString("postcode");
+                    }
+
                     if (address.has("city_district")) {
-                        location =  address.getString("city_district");
+                        location = location + " " + address.getString("city_district");
                     }
 
                     if (address.has("road")){
                         location = location + ", " + address.getString("road");
-                        if (address.has("house_number")){
-                            location = location + ", " + address.getString("house_number");
-                        }
                     }
                     else if (address.has("pedestrian")){
                         location = location + ", " + address.getString("pedestrian");
-                        if (address.has("house_number")){
-                            location = location + ", " + address.getString("house_number");
-                        }
                     }
 
-                    if (address.has("postcode")) {
-                        location = location + ", " + address.getString("postcode") + " Wien";
-                    }
-                    else {
-                        location = location + " Wien";
+                    if (address.has("house_number")){
+                        location = location + ", " + address.getString("house_number");
                     }
 
                     theaters.add(new Theater(name, location, lon, lat));
