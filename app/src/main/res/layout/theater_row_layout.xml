@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/imageRow"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/drama_icon"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"/>
+    
+    <TextView
+        android:id="@+id/theaterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_alignParentTop="true"
+        />
+    
+    <TextView
+        android:id="@+id/theaterAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/theaterName"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"/>
+
+</RelativeLayout>
