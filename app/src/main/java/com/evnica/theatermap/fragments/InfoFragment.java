@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.evnica.theatermap.R;
 
-public class HelloFragment extends Fragment{
+public class InfoFragment extends Fragment{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,17 +20,7 @@ public class HelloFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View helloView = inflater.inflate(R.layout.fragment_hello, container, false);
-        /*Button toMapActivityButton = (Button) getActivity().findViewById(R.id.startMapActivity);
-        toMapActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), MapsActivity.class));
-            }
-        });*/
-
-
-        return helloView;
+        return inflater.inflate(R.layout.fragment_info, container, false);
     }
 
 }
